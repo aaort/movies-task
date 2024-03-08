@@ -1,10 +1,11 @@
 import Home from '@renderer/pages/home'
 import { createBrowserRouter } from 'react-router-dom'
+import { movieStore } from '@renderer/lib/movie-store'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Home movieStore={movieStore} />
   }
 ])
 

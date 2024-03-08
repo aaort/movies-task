@@ -1,4 +1,5 @@
 import { randomGenres } from "./random-genres";
+import type { IMovie, IMovieDetails } from "./types";
 
 class OMDB {
   baseURL: string;
@@ -24,3 +25,5 @@ class OMDB {
 }
 
 export { OMDB };
+export type { IMovie, IMovieDetails };
+export default OMDB;
