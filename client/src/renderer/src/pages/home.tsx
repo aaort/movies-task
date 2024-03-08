@@ -1,3 +1,4 @@
+import ErrorAlert from '@renderer/components/custom/error-alert'
 import MovieCard from '@renderer/components/custom/movie-card'
 import SearchInput from '@renderer/components/custom/search-input'
 import { MovieStore } from '@renderer/lib/movie-store'
@@ -23,6 +24,10 @@ const Home: FC<IHomeProps> = observer((props) => {
 
     movieStore.setMoviesByKeyword(s)
   }, [s])
+
+  if (!movies || movies.length === 0) {
+    return <ErrorAlert />
+  }
 
   return (
     <>
