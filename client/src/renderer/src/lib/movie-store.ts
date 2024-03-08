@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from 'mobx'
-import OMDB, { IMovie } from 'omdb-sdk'
+import OMDB, { IMovie, IMovieDetails } from 'omdb-sdk'
 
 const apiKey = import.meta.env.VITE_OMDB_API_KEY
 
@@ -12,6 +12,17 @@ class MovieStore {
     makeObservable(this)
 
     this.setRandomMovies()
+  }
+
+  getMovieDetailsById = async (id: string): Promise<IMovieDetails | null> => {
+    try {
+      const response = await client.getMovieDetailsById(id)
+
+      return await response.json()
+    } catch (e) {
+      // TODO: implement error handling
+      return null
+    }
   }
 
   @action setRandomMovies = async (): Promise<void> => {
