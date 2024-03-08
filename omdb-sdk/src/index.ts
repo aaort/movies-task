@@ -19,7 +19,7 @@ class OMDB {
     return await this.getMoviesByKeyword(randomGenre);
   }
 
-  async getMovieById(id: string) {
+  async getMovieDetailsById(id: string) {
     return await fetch(`${this.baseURL}&i=${id}`);
   }
 }
