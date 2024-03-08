@@ -1,3 +1,4 @@
+import MovieCard from '@renderer/components/custom/movie-card'
 import { MovieStore } from '@renderer/lib/movie-store'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
@@ -13,9 +14,9 @@ const Home: FC<IHomeProps> = observer((props) => {
   const movies = toJS(movieStore.movies)
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
       {movies.map((movie) => (
-        <span key={movie.imdbID}>{movie.Title}</span>
+        <MovieCard key={movie.imdbID} movie={movie} />
       ))}
     </div>
   )
