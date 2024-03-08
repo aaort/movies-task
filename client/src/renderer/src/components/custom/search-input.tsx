@@ -19,7 +19,14 @@ const SearchInput = (): ReactNode => {
     setSearchText(event.target.value)
   }
 
-  return <Input value={searchText} onChange={onChange} placeholder='Search by keyword, press "s"' />
+  return (
+    <Input
+      id="search-input"
+      value={searchText}
+      onChange={onChange}
+      placeholder='Search by keyword, press "s"'
+    />
+  )
 }
 
 export default SearchInput
