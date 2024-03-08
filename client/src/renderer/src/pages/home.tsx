@@ -33,7 +33,6 @@ const Home: FC<IHomeProps> = observer((props) => {
         {movies.map((movie) => (
           <MovieCard key={movie.imdbID} movie={movie} />
         ))}
-        s
       </div>
     </div>
   )
