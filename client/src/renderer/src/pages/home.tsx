@@ -1,6 +1,7 @@
 import ErrorAlert from '@renderer/components/custom/error-alert'
 import MovieCard from '@renderer/components/custom/movie-card'
 import SearchInput from '@renderer/components/custom/search-input'
+import { Separator } from '@renderer/components/ui/separator'
 import { MovieStore } from '@renderer/lib/movie-store'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
@@ -23,10 +24,13 @@ const Home: FC<IHomeProps> = observer((props) => {
     <div className="flex flex-col gap-4">
       <SearchInput />
 
+      <Separator />
+
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.imdbID} movie={movie} />
         ))}
+        s
       </div>
     </div>
   )
