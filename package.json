@@ -4,5 +4,12 @@
   "description": "Monorepo for movies task project with Vite + React + Electron",
   "main": "index.js",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "client:dev": "yarn workspace client dev"
+  },
+  "workspaces": [
+    "client",
+    "omdb-sdk"
+  ]
 }
