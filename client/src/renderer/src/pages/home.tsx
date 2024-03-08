@@ -13,6 +13,11 @@ interface IHomeProps {
   movieStore: MovieStore
 }
 
+const errorAlertTexts = {
+  title: 'Could not find movies for the given query',
+  description: 'Please double check for your query, or reset query'
+}
+
 const Home: FC<IHomeProps> = observer((props) => {
   const { movieStore } = props
 
@@ -31,7 +36,7 @@ const Home: FC<IHomeProps> = observer((props) => {
       <Separator />
 
       {!movies || movies.length === 0 ? (
-        <ErrorAlert />
+        <ErrorAlert {...errorAlertTexts} />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {movies.map((movie) => (
