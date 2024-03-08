@@ -1,3 +1,4 @@
+import BackButton from '@renderer/components/custom/back-button'
 import {
   Card,
   CardContent,
@@ -13,17 +14,19 @@ const MovieDetails = (): ReactNode => {
   const movie = useLoaderData() as IMovieDetails
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{movie.Title}</CardTitle>
+    <div className="flex flex-col gap-4">
+      <BackButton />
 
-        <CardDescription>{movie.Plot}</CardDescription>
-      </CardHeader>
-
-      <CardContent>
-        <img src={movie.Poster} />
-      </CardContent>
-    </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>{movie.Title}</CardTitle>
+          <CardDescription>{movie.Plot}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <img src={movie.Poster} />
+        </CardContent>
+      </Card>
+    </div>
   )
 }
 
