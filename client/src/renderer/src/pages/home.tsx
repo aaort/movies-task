@@ -20,7 +20,7 @@ const Home: FC<IHomeProps> = observer((props) => {
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <SearchInput />
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
@@ -28,7 +28,7 @@ const Home: FC<IHomeProps> = observer((props) => {
           <MovieCard key={movie.imdbID} movie={movie} />
         ))}
       </div>
-    </>
+    </div>
   )
 })
 
