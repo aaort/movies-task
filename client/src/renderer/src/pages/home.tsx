@@ -20,10 +20,6 @@ const Home: FC<IHomeProps> = observer((props) => {
 
   useSPress()
 
-  if (!movies || movies.length === 0) {
-    return <ErrorAlert />
-  }
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-4">
@@ -34,11 +30,15 @@ const Home: FC<IHomeProps> = observer((props) => {
 
       <Separator />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {movies.map((movie) => (
-          <MovieCard key={movie.imdbID} movie={movie} />
-        ))}
-      </div>
+      {!movies || movies.length === 0 ? (
+        <ErrorAlert />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {movies.map((movie) => (
+            <MovieCard key={movie.imdbID} movie={movie} />
+          ))}
+        </div>
+      )}
     </div>
   )
 })
