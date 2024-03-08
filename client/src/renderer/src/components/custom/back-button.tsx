@@ -1,7 +1,7 @@
 import { ArrowLeftIcon } from '@radix-ui/react-icons'
+import IconButton from '@renderer/components/custom/icon-button'
 import { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import IconButton from './Icon-button'
 
 const BackButton = (): ReactNode => {
   const navigate = useNavigate()
