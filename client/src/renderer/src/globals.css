@@ -76,6 +76,12 @@
 }
 
 @layer components {
+  .key {
+    @apply font-bold text-slate-900 mr-1;
+  }
+  .value {
+    @apply text-slate-500;
+  }
   .poster {
     @apply h-[400px] w-full;
   }

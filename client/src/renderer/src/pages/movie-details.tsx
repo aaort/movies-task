@@ -22,8 +22,36 @@ const MovieDetails = (): ReactNode => {
           <CardTitle>{movie.Title}</CardTitle>
           <CardDescription>{movie.Plot}</CardDescription>
         </CardHeader>
-        <CardContent>
+
+        <CardContent className="flex gap-6">
           <img src={movie.Poster} />
+
+          <div className="flex flex-col gap-2">
+            <p>
+              <span className="key">Director: </span>
+              <span className="value">{movie.Director}</span>
+            </p>
+
+            <p>
+              <span className="key">Writer: </span>
+              <span className="value">{movie.Writer}</span>
+            </p>
+
+            <p>
+              <span className="key">Actors: </span>
+              <span className="value">{movie.Actors}</span>
+            </p>
+
+            <p>
+              <span className="key">Genre: </span>
+              <span className="value">{movie.Genre}</span>
+            </p>
+
+            <p>
+              <span className="key">Language: </span>
+              <span className="value">{movie.Language}</span>
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>
