@@ -1,4 +1,5 @@
 import ErrorAlert from '@renderer/components/custom/error-alert'
+import ModeToggle from '@renderer/components/custom/mode-toggle'
 import MovieCard from '@renderer/components/custom/movie-card'
 import SearchInput from '@renderer/components/custom/search-input'
 import { Separator } from '@renderer/components/ui/separator'
@@ -25,7 +26,11 @@ const Home: FC<IHomeProps> = observer((props) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <SearchInput />
+      <div className="flex gap-4">
+        <SearchInput />
+
+        <ModeToggle />
+      </div>
 
       <Separator />
 

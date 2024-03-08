@@ -71,13 +71,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground p-4;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
   .key {
-    @apply font-bold text-slate-900 mr-1;
+    @apply font-bold dark:text-slate-300 text-slate-900 mr-1;
   }
   .value {
     @apply text-slate-500;
