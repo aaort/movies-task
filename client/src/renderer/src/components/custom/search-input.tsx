@@ -7,10 +7,6 @@ const SearchInput = (): ReactNode => {
   const [searchText, setSearchText] = useState<string>('')
 
   const debounced = useDebouncedCallback(() => {
-    if (searchText.length === 0) {
-      movieStore.setRandomMovies()
-    }
-
     if (searchText.length < 3) return
 
     movieStore.setMoviesByKeyword(searchText)
@@ -21,7 +17,13 @@ const SearchInput = (): ReactNode => {
   }, [searchText])
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (event): void => {
-    setSearchText(event.target.value)
+    const value = event.target.value
+
+    if (value.length === 0) {
+      movieStore.setRandomMovies()
+    }
+
+    setSearchText(value)
   }
 
   return (
