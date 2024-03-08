@@ -7,7 +7,12 @@ const SearchInput = (): ReactNode => {
   const [searchText, setSearchText] = useState<string>('')
 
   const debounced = useDebouncedCallback(() => {
+    if (searchText.length === 0) {
+      movieStore.setRandomMovies()
+    }
+
     if (searchText.length < 3) return
+
     movieStore.setMoviesByKeyword(searchText)
   }, 300)
 
