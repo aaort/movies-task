@@ -34,6 +34,16 @@ class MovieStore {
       // TODO: implement error handling
     }
   }
+
+  @action setMoviesByKeyword = async (keyword: string): Promise<void> => {
+    try {
+      const response = await client.getMoviesByKeyword(keyword)
+
+      this.movies = (await response.json()).Search
+    } catch (e) {
+      // TODO: implement error handling
+    }
+  }
 }
 
 const movieStore = new MovieStore()
