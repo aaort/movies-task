@@ -1,0 +1,8 @@
+{
+  "name": "movies-task",
+  "version": "1.0.0",
+  "description": "Monorepo for movies task project with Vite + React + Electron",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}
