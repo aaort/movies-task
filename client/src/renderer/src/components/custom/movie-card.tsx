@@ -18,7 +18,7 @@ const MovieCard: FC<IMovieCardProps> = (props) => {
         </CardHeader>
 
         <CardContent>
-          <img src={movie.Poster} />
+          <img src={movie.Poster} className="poster" />
         </CardContent>
 
         <CardFooter>{movie.Year}</CardFooter>

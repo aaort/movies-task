@@ -74,3 +74,9 @@
     @apply bg-background text-foreground p-4;
   }
 }
+
+@layer components {
+  .poster {
+    @apply h-[400px] w-full;
+  }
+}
