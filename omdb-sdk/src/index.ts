@@ -15,9 +15,6 @@ class OMDB {
     const randomGenre =
       randomGenres[Math.floor(Math.random() * (randomGenres.length - 1))];
 
-    console.log(randomGenre);
-    console.log(this.baseURL);
-
     return await this.getMoviesByKeyword(randomGenre);
   }
 }
