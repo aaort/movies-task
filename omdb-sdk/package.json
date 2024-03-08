@@ -1,6 +1,9 @@
 {
   "name": "omdb-sdk",
   "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
   "dependencies": {
     "cross-env": "5.0.5"
   }
