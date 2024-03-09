@@ -21,7 +21,7 @@ const ErrorAlert: FC<IErrorAlert> = (props) => {
       <AlertTitle>{title}</AlertTitle>
 
       <AlertDescription>
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between items-center">
           <span>{description}</span>
 
           <ReloadButton />
