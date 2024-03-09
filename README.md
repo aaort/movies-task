@@ -22,7 +22,7 @@ SDK exposes a class with three different utility methods for communicating with 
 
 **The actual application's code is placed under [renderer](client/src/renderer/src)**
 
-`main` and `preload` directories include code only specific to the [Electron](https://www.electronjs.org/).
+`main` and `preload` directories that only include code specific to the [Electron](https://www.electronjs.org/).
 
 I also have `electron.vite.config.ts` for configurations specific to the `Electron` framework.
 
