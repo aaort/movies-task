@@ -28,6 +28,11 @@ const MovieDetails = (): ReactNode => {
 
           <div className="flex flex-col gap-2">
             <p>
+              <span className="key">Type: </span>
+              <span className="value">{movie.Type}</span>
+            </p>
+
+            <p>
               <span className="key">Director: </span>
               <span className="value">{movie.Director}</span>
             </p>
@@ -50,6 +55,21 @@ const MovieDetails = (): ReactNode => {
             <p>
               <span className="key">Language: </span>
               <span className="value">{movie.Language}</span>
+            </p>
+
+            <p>
+              <span className="key">Year: </span>
+              <span className="value">{movie.Year}</span>
+            </p>
+
+            <p>
+              <span className="key">IMDB Rating: </span>
+              <span className="value">{movie.imdbRating}</span>
+            </p>
+
+            <p>
+              <span className="key">IMDB Votes: </span>
+              <span className="value">{movie.imdbVotes}</span>
             </p>
           </div>
         </CardContent>
