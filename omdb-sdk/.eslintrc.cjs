@@ -13,7 +13,5 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {
-    "@typescript-eslint/member-delimiter-style": "0",
-  },
+  rules: {},
 };

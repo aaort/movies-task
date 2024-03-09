@@ -5,7 +5,7 @@ class OMDB {
   baseURL: string;
 
   constructor(apiKey: string) {
-    this.baseURL = `http://www.omdbapi.com/?apikey=${apiKey}`;
+    this.baseURL = `https://www.omdbapi.com/?apikey=${apiKey}`;
   }
 
   async getMoviesByKeyword(keyword: string): Promise<Response> {
