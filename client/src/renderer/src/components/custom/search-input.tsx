@@ -1,3 +1,5 @@
+import { Cross2Icon } from '@radix-ui/react-icons'
+import { Button } from '@renderer/components/ui/button'
 import { Input } from '@renderer/components/ui/input'
 import { movieStore } from '@renderer/lib/movie-store'
 import { ChangeEventHandler, ReactNode, useEffect, useState } from 'react'
@@ -5,6 +7,8 @@ import { useDebouncedCallback } from 'use-debounce'
 
 const SearchInput = (): ReactNode => {
   const [searchText, setSearchText] = useState<string>('')
+
+  const clearSearchText = (): void => setSearchText('')
 
   const debounced = useDebouncedCallback(() => {
     if (searchText.length < 3) return
@@ -27,12 +31,23 @@ const SearchInput = (): ReactNode => {
   }
 
   return (
-    <Input
-      id="search-input"
-      value={searchText}
-      onChange={onChange}
-      placeholder='Search by keyword, press "s"'
-    />
+    <div className="flex gap-4 w-full">
+      <Input
+        id="search-input"
+        value={searchText}
+        onChange={onChange}
+        placeholder='Search by keyword, press "s"'
+      />
+
+      <Button
+        size="icon"
+        variant="outline"
+        onClick={clearSearchText}
+        className={`transition-transform ${searchText.length > 0 ? 'scale-1' : 'scale-0'}`}
+      >
+        <Cross2Icon />
+      </Button>
+    </div>
   )
 }
 
