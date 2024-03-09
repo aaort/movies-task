@@ -1,5 +1,5 @@
 import { ReloadIcon } from '@radix-ui/react-icons'
-import IconButton from '@renderer/components/custom/icon-button'
+import { Button } from '@renderer/components/ui/button'
 import { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,9 +11,9 @@ const ReloadButton = (): ReactNode => {
   }
 
   return (
-    <IconButton onClick={handleReload}>
+    <Button size="icon" variant="ghost" onClick={handleReload}>
       <ReloadIcon />
-    </IconButton>
+    </Button>
   )
 }
 

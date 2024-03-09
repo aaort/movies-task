@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from '@radix-ui/react-icons'
-import IconButton from '@renderer/components/custom/icon-button'
+import { Button } from '@renderer/components/ui/button'
 import { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,9 +11,9 @@ const BackButton = (): ReactNode => {
   }
 
   return (
-    <IconButton onClick={handleClick}>
+    <Button size="icon" variant="ghost" onClick={handleClick}>
       <ArrowLeftIcon />
-    </IconButton>
+    </Button>
   )
 }
 
