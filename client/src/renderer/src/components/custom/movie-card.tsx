@@ -1,4 +1,11 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@renderer/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@renderer/components/ui/card'
 import { IMovie } from 'omdb-sdk'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
@@ -15,7 +22,9 @@ const MovieCard: FC<IMovieCardProps> = (props) => {
     <Link to={`/movies/${movie.imdbID}`}>
       <Card>
         <CardHeader>
-          <CardTitle> {movie.Title} </CardTitle>
+          <CardTitle>{movie.Title}</CardTitle>
+
+          <CardDescription className="capitalize">{movie.Type}</CardDescription>
         </CardHeader>
 
         <CardContent>
