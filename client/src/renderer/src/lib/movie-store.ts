@@ -8,7 +8,7 @@ const client = new OMDB(apiKey)
 class MovieStore {
   @observable loading = false
   @observable movies: IMovie[] = []
-  @observable searchedMovies?: IMovie[] = []
+  @observable searchedMovies?: IMovie[]
 
   constructor() {
     makeObservable(this)
