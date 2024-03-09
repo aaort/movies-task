@@ -21,7 +21,7 @@ const errorAlertTexts = {
 const Home: FC<IHomeProps> = observer((props) => {
   const { movieStore } = props
 
-  const movies = toJS(movieStore.movies)
+  const movies = toJS(movieStore.searchedMovies || movieStore.movies)
 
   const { loading } = movieStore
 

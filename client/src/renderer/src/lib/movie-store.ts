@@ -8,6 +8,7 @@ const client = new OMDB(apiKey)
 class MovieStore {
   @observable loading = false
   @observable movies: IMovie[] = []
+  @observable searchedMovies?: IMovie[] = []
 
   constructor() {
     makeObservable(this)
@@ -43,10 +44,14 @@ class MovieStore {
     try {
       const response = await client.getMoviesByKeyword(keyword)
 
-      this.movies = (await response.json()).Search
+      this.searchedMovies = (await response.json()).Search
     } catch (e) {
       // TODO: implement error handling
     }
+  }
+
+  @action resetSearchedMovies = (): void => {
+    this.searchedMovies = undefined
   }
 }
 

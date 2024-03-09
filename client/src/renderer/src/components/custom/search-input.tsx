@@ -20,7 +20,7 @@ const SearchInput = (): ReactNode => {
     const value = event.target.value
 
     if (value.length === 0) {
-      movieStore.setRandomMovies()
+      movieStore.resetSearchedMovies()
     }
 
     setSearchText(value)
