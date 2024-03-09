@@ -8,11 +8,32 @@ import {
   CardTitle
 } from '@renderer/components/ui/card'
 import { IMovieDetails } from 'omdb-sdk'
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import { useLoaderData } from 'react-router-dom'
+
+interface IKeyValueProps {
+  _key: string
+  value: string
+}
+
+const KeyValue: FC<IKeyValueProps> = (props) => {
+  const { _key, value } = props
+
+  return (
+    <p>
+      <span className="key">{_key}: </span>
+      <span className="value">{value}</span>
+    </p>
+  )
+}
+
+const requiredKeyValues =
+  /Type|Director|Writer|Actors|Genre|Language|Genre|Year|imdbRating|imdbVotes/
 
 const MovieDetails = (): ReactNode => {
   const movie = useLoaderData() as IMovieDetails
+
+  const keyValues = Object.entries(movie).filter(([key]) => requiredKeyValues.test(key))
 
   return (
     <div className="flex flex-col gap-4">
@@ -28,50 +49,9 @@ const MovieDetails = (): ReactNode => {
           <Poster movie={movie} className="flex-1" />
 
           <div className="flex flex-col gap-2 flex-[3]">
-            <p>
-              <span className="key">Type: </span>
-              <span className="value">{movie.Type}</span>
-            </p>
-
-            <p>
-              <span className="key">Director: </span>
-              <span className="value">{movie.Director}</span>
-            </p>
-
-            <p>
-              <span className="key">Writer: </span>
-              <span className="value">{movie.Writer}</span>
-            </p>
-
-            <p>
-              <span className="key">Actors: </span>
-              <span className="value">{movie.Actors}</span>
-            </p>
-
-            <p>
-              <span className="key">Genre: </span>
-              <span className="value">{movie.Genre}</span>
-            </p>
-
-            <p>
-              <span className="key">Language: </span>
-              <span className="value">{movie.Language}</span>
-            </p>
-
-            <p>
-              <span className="key">Year: </span>
-              <span className="value">{movie.Year}</span>
-            </p>
-
-            <p>
-              <span className="key">IMDB Rating: </span>
-              <span className="value">{movie.imdbRating}</span>
-            </p>
-
-            <p>
-              <span className="key">IMDB Votes: </span>
-              <span className="value">{movie.imdbVotes}</span>
-            </p>
+            {keyValues.map(([key, value]) => (
+              <KeyValue key={key} _key={key} value={value} />
+            ))}
           </div>
         </CardContent>
       </Card>
