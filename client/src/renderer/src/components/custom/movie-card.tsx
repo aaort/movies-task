@@ -20,7 +20,7 @@ const MovieCard: FC<IMovieCardProps> = (props) => {
 
   return (
     <Link to={`/movies/${movie.imdbID}`}>
-      <Card>
+      <Card className="h-full">
         <CardHeader>
           <CardTitle>{movie.Title}</CardTitle>
 
