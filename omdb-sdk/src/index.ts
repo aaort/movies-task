@@ -8,18 +8,18 @@ class OMDB {
     this.baseURL = `http://www.omdbapi.com/?apikey=${apiKey}`;
   }
 
-  async getMoviesByKeyword(keyword: string) {
+  async getMoviesByKeyword(keyword: string): Promise<Response> {
     return await fetch(`${this.baseURL}&s=${keyword}`);
   }
 
-  async getRandomMovies() {
+  async getRandomMovies(): Promise<Response> {
     const randomGenre =
       randomGenres[Math.floor(Math.random() * (randomGenres.length - 1))];
 
     return await this.getMoviesByKeyword(randomGenre);
   }
 
-  async getMovieDetailsById(id: string) {
+  async getMovieDetailsById(id: string): Promise<Response> {
     return await fetch(`${this.baseURL}&i=${id}`);
   }
 }

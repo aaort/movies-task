@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ["eslint:recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
   env: {
     browser: true,
     node: true,
@@ -7,5 +11,9 @@ module.exports = {
   },
   parserOptions: {
     ecmaVersion: "latest",
+    sourceType: "module",
+  },
+  rules: {
+    "@typescript-eslint/member-delimiter-style": "0",
   },
 };

@@ -21,7 +21,7 @@ interface IMovieDetails {
   Country: string;
   Awards: string;
   Poster: string;
-  Ratings: Record<string, string>[];
+  Ratings: Array<Record<string, string>>;
   Metascore: string;
   imdbRating: string;
   imdbVotes: string;
@@ -34,4 +34,4 @@ interface IMovieDetails {
   Response: string;
 }
 
-export { IMovie, IMovieDetails };
+export type { IMovie, IMovieDetails };
