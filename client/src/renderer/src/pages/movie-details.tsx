@@ -1,3 +1,4 @@
+import Poster from '@renderer/components/custom/Poster'
 import BackButton from '@renderer/components/custom/back-button'
 import {
   Card,
@@ -24,9 +25,9 @@ const MovieDetails = (): ReactNode => {
         </CardHeader>
 
         <CardContent className="flex flex-col sm:flex-row gap-6">
-          <img src={movie.Poster} />
+          <Poster movie={movie} className="flex-1" />
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 flex-[3]">
             <p>
               <span className="key">Type: </span>
               <span className="value">{movie.Type}</span>
