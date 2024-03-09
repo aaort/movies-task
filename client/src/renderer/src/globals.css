@@ -83,7 +83,7 @@
     @apply text-slate-500;
   }
   .poster-wrapper {
-    @apply h-[400px] bg-slate-400 flex items-center justify-center;
+    @apply h-[400px] bg-slate-400 flex items-center justify-center rounded-xl overflow-clip;
   }
   .poster {
     @apply h-[400px] w-full z-20;
