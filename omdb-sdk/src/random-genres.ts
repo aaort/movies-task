@@ -18,7 +18,7 @@ const randomGenres = [
   "Sport",
   "Thriller",
   "War",
-  "Western",
-];
+  "Western"
+]
 
-export { randomGenres };
+export { randomGenres }

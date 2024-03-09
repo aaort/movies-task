@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["omdb"]
+  "cSpell.words": ["omdb"],
+  "prettier.semi": false,
+  "prettier.trailingComma": "none"
 }
