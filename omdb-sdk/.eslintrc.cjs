@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es: true,
+    es6: true,
   },
   parserOptions: {
     ecmaVersion: "latest",
