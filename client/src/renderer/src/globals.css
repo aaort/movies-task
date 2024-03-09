@@ -76,16 +76,19 @@
 }
 
 @layer components {
-  .key {
-    @apply font-bold dark:text-slate-300 text-slate-900 mr-1;
-  }
-  .value {
-    @apply text-slate-500;
-  }
   .poster-wrapper {
     @apply h-[400px] border shadow-sm bg-slate-400 flex items-center justify-center rounded-xl overflow-clip;
   }
   .poster {
     @apply h-[400px] w-full z-20;
+  }
+}
+
+@layer utilities {
+  .key {
+    @apply font-bold dark:text-slate-300 text-slate-900 mr-1;
+  }
+  .value {
+    @apply text-slate-500;
   }
 }
