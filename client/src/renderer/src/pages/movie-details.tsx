@@ -1,4 +1,4 @@
-import Poster from '@renderer/components/custom/Poster'
+import Poster from '@renderer/components/custom/poster'
 import BackButton from '@renderer/components/custom/back-button'
 import {
   Card,

@@ -2,7 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@renderer/
 import { IMovie } from 'omdb-sdk'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import Poster from './Poster'
+import Poster from './poster'
 
 interface IMovieCardProps {
   movie: IMovie
