@@ -23,7 +23,7 @@ const MovieDetails = (): ReactNode => {
           <CardDescription>{movie.Plot}</CardDescription>
         </CardHeader>
 
-        <CardContent className="flex gap-6">
+        <CardContent className="flex flex-col sm:flex-row gap-6">
           <img src={movie.Poster} />
 
           <div className="flex flex-col gap-2">
