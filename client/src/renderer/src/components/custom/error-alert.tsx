@@ -16,17 +16,20 @@ const ErrorAlert: FC<IErrorAlert> = (props) => {
 
   return (
     <Alert>
-      <CodeIcon />
+      <div className="flex gap-4 items-center">
+        <CodeIcon className="w-6 h-6 text-red-600" />
 
-      <AlertTitle>{title}</AlertTitle>
+        <div className="w-full">
+          <AlertTitle>{title}</AlertTitle>
+          <AlertDescription>
+            <div className="flex flex-row justify-between items-center">
+              <span>{description}</span>
 
-      <AlertDescription>
-        <div className="flex flex-row justify-between items-center">
-          <span>{description}</span>
-
-          <ReloadButton />
+              <ReloadButton />
+            </div>
+          </AlertDescription>
         </div>
-      </AlertDescription>
+      </div>
     </Alert>
   )
 }
