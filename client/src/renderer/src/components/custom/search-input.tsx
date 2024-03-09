@@ -2,10 +2,10 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 import { Button } from '@renderer/components/ui/button'
 import { Input } from '@renderer/components/ui/input'
 import { movieStore } from '@renderer/lib/movie-store'
-import { ChangeEventHandler, ReactNode, useEffect, useState } from 'react'
+import { ChangeEventHandler, useEffect, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
-const SearchInput = (): ReactNode => {
+const SearchInput = (): JSX.Element => {
   const [searchText, setSearchText] = useState<string>('')
 
   const clearSearchText = (): void => setSearchText('')

@@ -1,5 +1,5 @@
-import Poster from '@renderer/components/custom/poster'
 import BackButton from '@renderer/components/custom/back-button'
+import Poster from '@renderer/components/custom/poster'
 import {
   Card,
   CardContent,
@@ -8,7 +8,7 @@ import {
   CardTitle
 } from '@renderer/components/ui/card'
 import { IMovieDetails } from 'omdb-sdk'
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 interface IKeyValueProps {
@@ -30,7 +30,7 @@ const KeyValue: FC<IKeyValueProps> = (props) => {
 const requiredKeyValues =
   /Type|Director|Writer|Actors|Genre|Language|Genre|Year|imdbRating|imdbVotes/
 
-const MovieDetails = (): ReactNode => {
+const MovieDetails = (): JSX.Element => {
   const movie = useLoaderData() as IMovieDetails
 
   const keyValues = Object.entries(movie).filter(([key]) => requiredKeyValues.test(key))

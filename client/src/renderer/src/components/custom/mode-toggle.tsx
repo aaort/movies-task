@@ -7,9 +7,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@renderer/components/ui/dropdown-menu'
-import { ReactNode } from 'react'
 
-const ModeToggle = (): ReactNode => {
+const ModeToggle = (): JSX.Element => {
   const { setTheme } = useTheme()
 
   return (
