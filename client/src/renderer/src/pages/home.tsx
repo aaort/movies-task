@@ -1,6 +1,6 @@
 import ErrorAlert from '@renderer/components/custom/error-alert'
 import ModeToggle from '@renderer/components/custom/mode-toggle'
-import MovieCard from '@renderer/components/custom/movie-card'
+import MovieGrid from '@renderer/components/custom/movie-grid'
 import SearchInput from '@renderer/components/custom/search-input'
 import { Separator } from '@renderer/components/ui/separator'
 import useSPress from '@renderer/hooks/use-s-press'
@@ -23,6 +23,8 @@ const Home: FC<IHomeProps> = observer((props) => {
 
   const movies = toJS(movieStore.movies)
 
+  const { loading } = movieStore
+
   useSPress()
 
   return (
@@ -35,14 +37,10 @@ const Home: FC<IHomeProps> = observer((props) => {
 
       <Separator />
 
-      {!movies || movies.length === 0 ? (
+      {!loading && (!movies || !movies.length) ? (
         <ErrorAlert {...errorAlertTexts} />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {movies.map((movie) => (
-            <MovieCard key={movie.imdbID} movie={movie} />
-          ))}
-        </div>
+        <MovieGrid movies={movies} loading={loading} />
       )}
     </div>
   )
