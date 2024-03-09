@@ -6,6 +6,7 @@ const apiKey = import.meta.env.VITE_OMDB_API_KEY
 const client = new OMDB(apiKey)
 
 class MovieStore {
+  @observable loading = false
   @observable movies: IMovie[] = []
 
   constructor() {
@@ -26,6 +27,7 @@ class MovieStore {
   }
 
   @action setRandomMovies = async (): Promise<void> => {
+    this.loading = true
     try {
       const response = await client.getRandomMovies()
 
@@ -33,6 +35,8 @@ class MovieStore {
     } catch (e) {
       // TODO: implement error handling
     }
+
+    this.loading = false
   }
 
   @action setMoviesByKeyword = async (keyword: string): Promise<void> => {
