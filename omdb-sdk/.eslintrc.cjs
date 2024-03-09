@@ -3,5 +3,9 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    es: true,
+  },
+  parserOptions: {
+    ecmaVersion: "latest",
   },
 };
