@@ -1,6 +1,6 @@
 import { CodeIcon } from '@radix-ui/react-icons'
-import NavigateHomeButton from '@renderer/components/custom/navigate-home-button'
-import ReloadButton from '@renderer/components/custom/reload-button'
+import NavigateHomeButton from '@renderer/components/custom/buttons/navigate-home-button'
+import ReloadButton from '@renderer/components/custom/buttons/reload-button'
 import { Alert, AlertDescription, AlertTitle } from '@renderer/components/ui/alert'
 import { FC } from 'react'
 import { useLocation } from 'react-router-dom'
