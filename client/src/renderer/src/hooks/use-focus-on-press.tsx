@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 
-const useSPress = (): void => {
+const useFocusOnPress = (elemId: string, key: string): void => {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent): void => {
-      if (event.key === 's') {
-        const searchInput = document.getElementById('search-input')
+      if (event.key === key) {
+        const searchInput = document.getElementById(elemId)
         setTimeout(() => {
           searchInput?.focus()
         }, 50)
@@ -19,4 +19,4 @@ const useSPress = (): void => {
   }, [])
 }
 
-export default useSPress
+export default useFocusOnPress

@@ -3,7 +3,7 @@ import ModeToggle from '@renderer/components/custom/mode-toggle'
 import MovieList from '@renderer/components/custom/movie-list'
 import SearchInput from '@renderer/components/custom/search-input'
 import { Separator } from '@renderer/components/ui/separator'
-import useSPress from '@renderer/hooks/use-s-press'
+import useFocusOnPress from '@renderer/hooks/use-focus-on-press'
 import { MovieStore } from '@renderer/lib/movie-store'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
@@ -25,7 +25,7 @@ const Home: FC<IHomeProps> = observer((props) => {
 
   const { loading } = movieStore
 
-  useSPress()
+  useFocusOnPress('search-input', 's')
 
   return (
     <div className="flex flex-col gap-4">
