@@ -1,9 +1,11 @@
 import { CodeIcon } from '@radix-ui/react-icons'
+import NavigateHomeButton from '@renderer/components/custom/navigate-home-button'
+import ReloadButton from '@renderer/components/custom/reload-button'
 import { Alert, AlertDescription, AlertTitle } from '@renderer/components/ui/alert'
 import { FC } from 'react'
-import ReloadButton from './reload-button'
+import { useLocation } from 'react-router-dom'
 
-interface IErrorAlert {
+interface IErrorAlertProps {
   title?: string
   description?: string
 }
@@ -11,8 +13,12 @@ interface IErrorAlert {
 const defaultTitle = 'Something went wrong'
 const defaultDescription = 'Please try again later, or try to reload the page'
 
-const ErrorAlert: FC<IErrorAlert> = (props) => {
+const ErrorAlert: FC<IErrorAlertProps> = (props) => {
   const { title = defaultTitle, description = defaultDescription } = props
+
+  const { pathname } = useLocation()
+
+  const isInHomePage = pathname === '/movies'
 
   return (
     <Alert>
@@ -25,7 +31,11 @@ const ErrorAlert: FC<IErrorAlert> = (props) => {
             <div className="flex flex-row justify-between items-center">
               <span>{description}</span>
 
-              <ReloadButton />
+              <div className="flex gap-4">
+                <ReloadButton />
+
+                {!isInHomePage && <NavigateHomeButton />}
+              </div>
             </div>
           </AlertDescription>
         </div>
@@ -34,4 +44,5 @@ const ErrorAlert: FC<IErrorAlert> = (props) => {
   )
 }
 
+export type { IErrorAlertProps }
 export default ErrorAlert
