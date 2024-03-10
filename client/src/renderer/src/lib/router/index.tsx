@@ -4,6 +4,7 @@ import Home from '@renderer/pages/home'
 import MovieDetails from '@renderer/pages/movie-details'
 import { IMovieDetails } from 'omdb-sdk'
 import { Navigate, createBrowserRouter } from 'react-router-dom'
+import { movieDetailsLoader } from './loaders'
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,7 @@ const router = createBrowserRouter([
     path: '/movies/:id',
     element: <MovieDetails />,
     errorElement: <MovieDetailsErrorBoundary />,
-    loader: async ({ params }): Promise<IMovieDetails | null> => {
-      return await movieStore.getMovieDetailsById(params.id!)
-    }
+    loader: ({ params }): Promise<{ movie: IMovieDetails } | null> => movieDetailsLoader(params.id)
   }
 ])
 

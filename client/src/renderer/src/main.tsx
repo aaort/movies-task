@@ -1,7 +1,7 @@
 import './globals.css'
 
 import { ThemeProvider } from '@renderer/components/custom/theme-provider'
-import { router } from '@renderer/router'
+import { router } from '@renderer/lib/router'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
