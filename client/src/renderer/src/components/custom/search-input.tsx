@@ -8,7 +8,11 @@ import { useDebouncedCallback } from 'use-debounce'
 const SearchInput = (): JSX.Element => {
   const [searchText, setSearchText] = useState<string>('')
 
-  const clearSearchText = (): void => setSearchText('')
+  const clearSearchText = (): void => {
+    setSearchText('')
+
+    movieStore.resetSearchedMovies()
+  }
 
   const debounced = useDebouncedCallback(() => {
     if (searchText.length < 3) return
