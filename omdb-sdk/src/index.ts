@@ -1,4 +1,4 @@
-import { randomGenres } from "./random-genres"
+import { genres } from "./random-genres"
 import type { IMovie, IMovieDetails } from "./types"
 
 class OMDB {
@@ -13,8 +13,7 @@ class OMDB {
   }
 
   async getRandomMovies(): Promise<Response> {
-    const randomGenre =
-      randomGenres[Math.floor(Math.random() * (randomGenres.length - 1))]
+    const randomGenre = genres[Math.floor(Math.random() * (genres.length - 1))]
 
     return await this.getMoviesByKeyword(randomGenre)
   }

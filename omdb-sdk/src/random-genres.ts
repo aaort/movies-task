@@ -1,4 +1,4 @@
-const randomGenres = [
+const genres = [
   "Action",
   "Adventure",
   "Animation",
@@ -21,4 +21,4 @@ const randomGenres = [
   "Western"
 ]
 
-export { randomGenres }
+export { genres }
