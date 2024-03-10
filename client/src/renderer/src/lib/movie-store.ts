@@ -17,14 +17,15 @@ class MovieStore {
   }
 
   getMovieDetailsById = async (id: string): Promise<IMovieDetails | null> => {
-    try {
-      const response = await client.getMovieDetailsById(id)
+    const response = await client.getMovieDetailsById(id)
 
-      return await response.json()
-    } catch (e) {
-      // TODO: implement error handling
-      return null
+    const data = await response.json()
+
+    if (data.Error) {
+      throw new Error(data.Error)
     }
+
+    return data
   }
 
   @action setRandomMovies = async (): Promise<void> => {
