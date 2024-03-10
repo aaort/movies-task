@@ -5,12 +5,12 @@ import { FC } from 'react'
 
 const skeletons = Array.from({ length: 10 }, (_, i) => i + 1)
 
-interface MovieGrid {
+interface IMovieListProps {
   movies: IMovie[]
   loading: boolean
 }
 
-const MovieGrid: FC<MovieGrid> = (props) => {
+const MovieList: FC<IMovieListProps> = (props) => {
   const { loading, movies } = props
 
   return (
@@ -26,4 +26,4 @@ const MovieGrid: FC<MovieGrid> = (props) => {
   )
 }
 
-export default MovieGrid
+export default MovieList

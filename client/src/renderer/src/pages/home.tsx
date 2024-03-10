@@ -1,6 +1,6 @@
 import ErrorAlert from '@renderer/components/custom/error-alert'
 import ModeToggle from '@renderer/components/custom/mode-toggle'
-import MovieGrid from '@renderer/components/custom/movie-grid'
+import MovieList from '@renderer/components/custom/movie-list'
 import SearchInput from '@renderer/components/custom/search-input'
 import { Separator } from '@renderer/components/ui/separator'
 import useSPress from '@renderer/hooks/use-s-press'
@@ -40,7 +40,7 @@ const Home: FC<IHomeProps> = observer((props) => {
       {!loading && (!movies || !movies.length) ? (
         <ErrorAlert {...errorAlertTexts} />
       ) : (
-        <MovieGrid movies={movies} loading={loading} />
+        <MovieList movies={movies} loading={loading} />
       )}
     </div>
   )
