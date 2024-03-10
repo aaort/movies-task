@@ -1,5 +1,5 @@
 import ErrorAlert from '@renderer/components/custom/error-alert'
-import ModeToggle from '@renderer/components/custom/buttons/mode-toggle'
+import ModeToggle from '@renderer/components/custom/mode-toggle'
 import MovieList from '@renderer/components/custom/movie-list'
 import SearchInput from '@renderer/components/custom/search-input'
 import { Separator } from '@renderer/components/ui/separator'
