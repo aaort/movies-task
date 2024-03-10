@@ -1,4 +1,4 @@
-import { Cross2Icon } from '@radix-ui/react-icons'
+import { Cross2Icon, InfoCircledIcon } from '@radix-ui/react-icons'
 import { Button } from '@renderer/components/ui/button'
 import { Input } from '@renderer/components/ui/input'
 import { movieStore } from '@renderer/lib/movie-store'
@@ -8,16 +8,18 @@ import { useDebouncedCallback } from 'use-debounce'
 const SearchInput = (): JSX.Element => {
   const [searchText, setSearchText] = useState<string>('')
 
+  const { error, loading, resetSearchedMovies, setMoviesByKeyword } = movieStore
+
   const clearSearchText = (): void => {
     setSearchText('')
 
-    movieStore.resetSearchedMovies()
+    resetSearchedMovies()
   }
 
   const debounced = useDebouncedCallback(() => {
     if (searchText.length < 3) return
 
-    movieStore.setMoviesByKeyword(searchText)
+    setMoviesByKeyword(searchText)
   }, 300)
 
   useEffect(() => {
@@ -28,19 +30,26 @@ const SearchInput = (): JSX.Element => {
     const value = event.target.value
 
     if (value.length === 0) {
-      movieStore.resetSearchedMovies()
+      resetSearchedMovies()
     }
 
     setSearchText(value)
   }
 
+  const isSearchError = !loading && error && searchText.length >= 3
+
   return (
-    <div className="flex gap-4 w-full">
+    <div className="flex gap-4 w-full items-center">
       <Input
         id="search-input"
         value={searchText}
+        autoComplete="off"
         onChange={onChange}
         placeholder='Search by keyword, press "s"'
+      />
+
+      <InfoCircledIcon
+        className={`text-red-500 w-7 h-7 transition-transform ${isSearchError ? 'scale-1' : 'scale-0'}`}
       />
 
       <Button

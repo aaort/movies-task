@@ -6,6 +6,7 @@ const apiKey = import.meta.env.VITE_OMDB_API_KEY
 const client = new OMDB(apiKey)
 
 class MovieStore {
+  @observable error?: string
   @observable loading = false
   @observable movies: IMovie[] = []
   @observable searchedMovies?: IMovie[]
@@ -30,24 +31,31 @@ class MovieStore {
 
   @action setRandomMovies = async (): Promise<void> => {
     this.loading = true
-    try {
-      const response = await client.getRandomMovies()
+    const response = await client.getRandomMovies()
 
-      this.movies = (await response.json()).Search
-    } catch (e) {
-      // TODO: implement error handling
+    const data = await response.json()
+
+    if (data.Error) {
+      console.error(data.Error)
+      this.error = data.Error
+    } else {
+      this.movies = data.Search
+      this.error = undefined
+      this.loading = false
     }
-
-    this.loading = false
   }
 
   @action setMoviesByKeyword = async (keyword: string): Promise<void> => {
-    try {
-      const response = await client.getMoviesByKeyword(keyword)
+    const response = await client.getMoviesByKeyword(keyword)
 
-      this.searchedMovies = (await response.json()).Search
-    } catch (e) {
-      // TODO: implement error handling
+    const data = await response.json()
+
+    if (data.Error) {
+      console.error(data.Error)
+      this.error = data.Error
+    } else {
+      this.error = undefined
+      this.searchedMovies = data.Search
     }
   }
 
