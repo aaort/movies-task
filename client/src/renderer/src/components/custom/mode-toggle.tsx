@@ -1,5 +1,5 @@
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
-import { useTheme } from '@renderer/components/custom/theme-provider'
+import { Theme, useTheme } from '@renderer/components/custom/theme-provider'
 import { Button } from '@renderer/components/ui/button'
 import {
   DropdownMenu,
@@ -7,6 +7,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@renderer/components/ui/dropdown-menu'
+
+const MODES: Theme[] = ['light', 'dark', 'system'] as const
 
 const ModeToggle = (): JSX.Element => {
   const { setTheme } = useTheme()
@@ -22,9 +24,11 @@ const ModeToggle = (): JSX.Element => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="center">
-        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+        {MODES.map((mode) => (
+          <DropdownMenuItem key={mode} className="capitalize" onClick={() => setTheme(mode)}>
+            {mode}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   )
