@@ -1,4 +1,4 @@
-import { genres } from "./random-genres"
+import { genres } from "./genres"
 import type { IMovie, IMovieDetails } from "./types"
 
 class OMDB {
