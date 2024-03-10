@@ -11,7 +11,7 @@ function MovieDetailsErrorBoundary(): ReactNode {
   const params = useParams()
   const error = useRouteError() as Record<string, string>
 
-  console.error('this is the error', error)
+  console.error(error)
 
   return <ErrorAlert {...errorAlertTexts(params.id)} />
 }
