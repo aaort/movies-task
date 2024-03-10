@@ -1,3 +1,4 @@
+import MovieDetailsErrorBoundary from '@renderer/components/custom/boundaries/movie-details-error'
 import { movieStore } from '@renderer/lib/movie-store'
 import Home from '@renderer/pages/home'
 import MovieDetails from '@renderer/pages/movie-details'
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: '/movies/:id',
     element: <MovieDetails />,
+    errorElement: <MovieDetailsErrorBoundary />,
     loader: async ({ params }): Promise<IMovieDetails | null> => {
       return await movieStore.getMovieDetailsById(params.id!)
     }
