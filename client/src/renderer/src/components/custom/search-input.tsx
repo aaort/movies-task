@@ -1,6 +1,8 @@
 import { Cross2Icon, InfoCircledIcon } from '@radix-ui/react-icons'
+import { Tooltip } from '@radix-ui/react-tooltip'
 import { Button } from '@renderer/components/ui/button'
 import { Input } from '@renderer/components/ui/input'
+import { TooltipContent, TooltipTrigger } from '@renderer/components/ui/tooltip'
 import { movieStore } from '@renderer/lib/movie-store'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
@@ -48,9 +50,17 @@ const SearchInput = (): JSX.Element => {
         placeholder='Search by keyword, press "s"'
       />
 
-      <InfoCircledIcon
-        className={`text-red-500 w-7 h-7 transition-transform ${isSearchError ? 'scale-1' : 'scale-0'}`}
-      />
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <InfoCircledIcon
+            className={`text-red-500 w-7 h-7 transition-transform ${isSearchError ? 'scale-1' : 'scale-0'}`}
+          />
+        </TooltipTrigger>
+
+        <TooltipContent className="bg-card dark:bg-card border text-red-500">
+          <p>{movieStore.error}</p>
+        </TooltipContent>
+      </Tooltip>
 
       <Button
         size="icon"
