@@ -12,7 +12,7 @@ class OMDB {
     return await fetch(`${this.baseURL}&s=${keyword}`)
   }
 
-  async getRandomMovies(): Promise<Response> {
+  async getInitialMovies(): Promise<Response> {
     const randomGenre = genres[Math.floor(Math.random() * (genres.length - 1))]
 
     return await this.getMoviesByKeyword(randomGenre)

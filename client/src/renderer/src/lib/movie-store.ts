@@ -32,7 +32,7 @@ class MovieStore {
 
   @action setInitialMovies = async (): Promise<void> => {
     this.setLoading(true)
-    const response = await client.getRandomMovies()
+    const response = await client.getInitialMovies()
 
     const data = await response.json()
 
