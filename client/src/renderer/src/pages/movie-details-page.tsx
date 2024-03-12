@@ -30,7 +30,7 @@ const KeyValue: FC<IKeyValueProps> = (props) => {
 const requiredKeyValues =
   /Type|Director|Writer|Actors|Genre|Language|Genre|Year|imdbRating|imdbVotes/
 
-const MovieDetails = (): JSX.Element => {
+const MovieDetailsPage = (): JSX.Element => {
   const { movie } = useLoaderData() as { movie: IMovieDetails }
 
   const keyValues = Object.entries(movie).filter(([key]) => requiredKeyValues.test(key))
@@ -59,4 +59,4 @@ const MovieDetails = (): JSX.Element => {
   )
 }
 
-export default MovieDetails
+export default MovieDetailsPage

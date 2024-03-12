@@ -18,7 +18,7 @@ const errorAlertTexts = {
   description: 'Please double check for your query, or reset query'
 }
 
-const Home: FC<IHomeProps> = observer((props) => {
+const MoviesPage: FC<IHomeProps> = observer((props) => {
   const { movieStore } = props
 
   const movies = toJS(movieStore.searchedMovies || movieStore.movies)
@@ -46,4 +46,4 @@ const Home: FC<IHomeProps> = observer((props) => {
   )
 })
 
-export default Home
+export default MoviesPage
