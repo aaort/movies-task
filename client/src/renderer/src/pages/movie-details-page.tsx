@@ -22,7 +22,7 @@ const KeyValue: FC<IKeyValueProps> = (props) => {
   return (
     <p>
       <span className="key">{_key}: </span>
-      <span className="value">{value}</span>
+      <span className="value capitalize">{value}</span>
     </p>
   )
 }
