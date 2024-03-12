@@ -4,17 +4,21 @@ import { Button } from '@renderer/components/ui/button'
 import { Input } from '@renderer/components/ui/input'
 import { TooltipContent, TooltipTrigger } from '@renderer/components/ui/tooltip'
 import { movieStore } from '@renderer/lib/movie-store'
-import { ChangeEventHandler, useEffect, useState } from 'react'
+import { ChangeEventHandler, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useDebouncedCallback } from 'use-debounce'
 
 const SearchInput = (): JSX.Element => {
-  const [searchText, setSearchText] = useState<string>('')
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const setSearchText = (value: string): void => setSearchParams({ s: value })
+
+  const searchText = searchParams.get('s') || ''
 
   const { error, loading, resetSearchedMovies, setMoviesByKeyword } = movieStore
 
   const clearSearchText = (): void => {
-    setSearchText('')
-
+    setSearchParams({})
     resetSearchedMovies()
   }
 
@@ -32,10 +36,10 @@ const SearchInput = (): JSX.Element => {
     const value = event.target.value
 
     if (value.length === 0) {
-      resetSearchedMovies()
+      clearSearchText()
+    } else {
+      setSearchText(value)
     }
-
-    setSearchText(value)
   }
 
   const isSearchError = !loading && error && searchText.length >= 3

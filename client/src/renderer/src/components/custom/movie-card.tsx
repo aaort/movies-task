@@ -8,7 +8,7 @@ import {
 } from '@renderer/components/ui/card'
 import { IMovie } from 'omdb-sdk'
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import Poster from './poster'
 
 interface IMovieCardProps {
@@ -17,9 +17,10 @@ interface IMovieCardProps {
 
 const MovieCard: FC<IMovieCardProps> = (props) => {
   const { movie } = props
+  const [searchParams] = useSearchParams()
 
   return (
-    <Link to={`/movies/${movie.imdbID}`}>
+    <Link to={{ pathname: `/movies/${movie.imdbID}`, search: searchParams.toString() }}>
       <Card className="h-full">
         <CardHeader>
           <CardTitle>{movie.Title}</CardTitle>
