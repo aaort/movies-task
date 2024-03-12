@@ -30,18 +30,18 @@ class MovieStore {
   }
 
   @action setRandomMovies = async (): Promise<void> => {
-    this.loading = true
+    this.setLoading(true)
     const response = await client.getRandomMovies()
 
     const data = await response.json()
 
     if (data.Error) {
       console.error(data.Error)
-      this.error = data.Error
+      this.setError(data.Error)
     } else {
       this.movies = data.Search
-      this.error = undefined
-      this.loading = false
+      this.setError()
+      this.setLoading(false)
     }
   }
 
@@ -52,15 +52,23 @@ class MovieStore {
 
     if (data.Error) {
       console.error(data.Error)
-      this.error = data.Error
+      this.setError(data.Error)
     } else {
-      this.error = undefined
+      this.setError()
       this.searchedMovies = data.Search
     }
   }
 
   @action resetSearchedMovies = (): void => {
     this.searchedMovies = undefined
+  }
+
+  private setError = (error?: string): void => {
+    this.error = error
+  }
+
+  private setLoading = (loading: boolean): void => {
+    this.loading = loading
   }
 }
 
