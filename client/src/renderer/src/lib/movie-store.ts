@@ -14,7 +14,7 @@ class MovieStore {
   constructor() {
     makeObservable(this)
 
-    this.setRandomMovies()
+    this.setInitialMovies()
   }
 
   getMovieDetailsById = async (id: string): Promise<IMovieDetails | null> => {
@@ -23,13 +23,14 @@ class MovieStore {
     const data = await response.json()
 
     if (data.Error) {
+      // loaders's error boundary will catch this
       throw new Error(data.Error)
     }
 
     return data
   }
 
-  @action setRandomMovies = async (): Promise<void> => {
+  @action setInitialMovies = async (): Promise<void> => {
     this.setLoading(true)
     const response = await client.getRandomMovies()
 
@@ -39,7 +40,7 @@ class MovieStore {
       console.error(data.Error)
       this.setError(data.Error)
     } else {
-      this.movies = data.Search
+      this.setMovies(data.Search)
       this.setError()
       this.setLoading(false)
     }
@@ -55,7 +56,7 @@ class MovieStore {
       this.setError(data.Error)
     } else {
       this.setError()
-      this.searchedMovies = data.Search
+      this.setSearchMovies(data.Search)
     }
   }
 
@@ -63,11 +64,19 @@ class MovieStore {
     this.searchedMovies = undefined
   }
 
-  private setError = (error?: string): void => {
+  @action private setMovies = (data: IMovie[]): void => {
+    this.movies = data
+  }
+
+  @action private setSearchMovies = (data?: IMovie[]): void => {
+    this.searchedMovies = data
+  }
+
+  @action private setError = (error?: string): void => {
     this.error = error
   }
 
-  private setLoading = (loading: boolean): void => {
+  @action private setLoading = (loading: boolean): void => {
     this.loading = loading
   }
 }
